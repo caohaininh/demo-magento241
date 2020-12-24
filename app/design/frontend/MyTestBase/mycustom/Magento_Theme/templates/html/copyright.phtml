@@ -1,0 +1,11 @@
+<?php
+/**
+ * Demo my custom theme inherit Magento's Luma theme.
+ */
+?>
+<?php 
+    echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('footer-copyright')
+          ->toHtml();
+?>

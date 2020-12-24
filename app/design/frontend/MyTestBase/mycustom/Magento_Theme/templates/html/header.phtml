@@ -1,0 +1,11 @@
+<?php
+/**
+ * Demo my custom theme inherit Magento's Luma theme.
+ * 
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+?>
+
+<?php if ($block->getShowPart() == 'other') :?>
+    <?= $block->getChildHtml() ?>
+<?php endif ?>

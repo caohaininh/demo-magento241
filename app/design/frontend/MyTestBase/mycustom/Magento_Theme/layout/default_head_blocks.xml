@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Demo my custom theme inherit Magento's Luma theme.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Declaring my custom styles -->
+        <css src="css/font-awesome.min.css" order="97" />
+        <css src="css/fl-outicons.css" order="98" />
+        <css src="css/custom.css" order="99" />
+    </head>
+</page>

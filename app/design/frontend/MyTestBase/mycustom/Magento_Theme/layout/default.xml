@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Demo my custom theme inherit Magento's Luma theme.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel">
+        <!-- Add top bar messaage static block -->
+            <block class="Magento\Cms\Block\Block" name="top_bar_message" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">top-bar-message</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        
+        <referenceBlock name="header.links">
+            <referenceBlock name="authorization-link-login" remove="true"/>
+            <referenceBlock name="customer" remove="true"/>
+        </referenceBlock>
+        <move element="my-account-link" destination="header.links" before="-"/>
+        <move element="wish-list-link" destination="header.links" after="my-account-link"/>
+        <move element="catalog.compare.link" destination="header.links" before="register-link"/>
+        <move element="register-link" destination="header.links" before="authorization-link"/>
+        <move element="authorization-link" destination="header.links" after="-"/>
+        
+        <referenceContainer name="header-wrapper">
+            <!-- Add header hotline static block -->
+            <block class="Magento\Cms\Block\Block" name="header_static_hotline" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-hotline</argument>
+                </arguments>
+            </block>
+            
+            <!-- Declaring my custom logo for this theme -->
+            <container name="header-logo-wrapper" label="Header Logo Wrapper" htmlTag="div" htmlClass="header-logo-wrapper">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                    <arguments>
+                        <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                        <argument name="logo_width" xsi:type="number">291</argument>
+                        <argument name="logo_height" xsi:type="number">65</argument>
+                        <argument name="logo_alt" xsi:type="string">My site logo</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <!-- Move subscribe block to page.bottom.container -->
+        <move element="form.subscribe" destination="page.bottom.container" />
+        
+        <referenceContainer name="footer">
+            <!-- Add footer links static block -->
+            <block class="Magento\Cms\Block\Block" name="footer_links" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer-links</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- Move copyright block to before.body.end -->
+        <move element="copyright" destination="before.body.end"/>
+    </body>
+</page>
